@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Austin Weekly Poetry Writing Meetup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Search Results</h1>
+    <form action="{{ url_for('search') }}" method="post">
+        <input type="text" name="query" placeholder="Enter keyword or date" value="{{ query }}">
+        <input type="submit" value="Search">
+    </form>
+    {% if search_results %}
+        <ul>
+            {% for result in search_results %}
+                <li><a href="{{ url_for('poem', poem_id=result.id) }}">{{ result.title }}</a> - {{ result.date }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+    <a href="{{ url_for('home') }}">Back to home</a>
+</body>
+</html>
