@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Austin Weekly Poetry Writing Meetup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Austin Weekly Poetry Writing Meetup</h1>
+    <h2>Upcoming Events</h2>
+    <ul>
+        {% for event in upcoming_events %}
+            <li>{{ event.name }} - {{ event.local_date }} {{ event.local_time }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Explore Poems</h2>
+    <a href="{{ url_for('poems') }}">Browse all poems</a>
+    <h2>Search Poems</h2>
+    <form action="{{ url_for('search') }}" method="post">
+        <input type="text" name="query" placeholder="Enter keyword or date">
+        <input type="submit" value="Search">
+    </form>
+</body>
+</html>
