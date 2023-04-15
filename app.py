@@ -62,6 +62,9 @@ def get_upcoming_events():
     }]
     return response
 
+def newline_to_paragraph(value):
+    lines = value.split('\n')
+    return ''.join(f'<p>{line}</p>' for line in lines)
 
 def get_all_poems():
     poems_ref = db_firestore.collection('poems')
@@ -82,5 +85,7 @@ def search_poems(query):
     results = [doc.to_dict() for doc in docs]
     return results
 
+
+app.jinja_env.filters['newline_to_paragraph'] = newline_to_paragraph
 if __name__ == '__main__':
     app.run(debug=True)

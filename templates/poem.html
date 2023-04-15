@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ poem.title }} - Austin Weekly Poetry Writing Meetup</title>
+    <title>{{ poem.title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <h1>{{ poem.title }}</h1>
-    <p>{{ poem.content }}</p>
-    <p>Theme: {{ poem.theme }}</p>
-    <p>Date: {{ poem.date }}</p>
+    <h2>{{ poem.content | newline_to_paragraph | safe }}</h2> <!-- Use the custom filter and mark the result as safe -->
+    <p>Date: {{ poem.Date }}</p>
     <p>Event: {{ poem.event }}</p>
     <a href="{{ url_for('poems') }}">Back to all poems</a>
 </body>
