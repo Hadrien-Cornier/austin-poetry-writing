@@ -1,13 +1,23 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 0 30px; /* Add left and right padding */
     line-height: 1.6;
     color: #333;
 }
 
-h1, h2, h3 {
+h1 {
+    color: black; /* Set the title color to black */
+    background-color: #b3d9ff; /* Set the background color to pale blue */
+    padding: 10px; /* Add padding around the title */
+    border-top: 2px solid black; /* Add a black line above the title */
+    text-align: center;
+}
+
+h2 {
     margin-bottom: 20px;
+    border-top: 2px solid black; /* Add a black line above each section */
+    padding-top: 20px;
 }
 
 ul {
